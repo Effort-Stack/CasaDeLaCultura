@@ -11,7 +11,7 @@ public:
     // Constructor
     Curso(const std::string& nombre, int cupo, double costo);
 
-    // Métodos (setters y getters)
+    // Metodos (setters y getters)
     std::string getNombre() const;
     int getCupo() const;
     int getCuposDisponibles() const;
@@ -21,7 +21,7 @@ public:
     void setCupo(int cupo);
     void setCosto(double costo);
 
-    // Otros métodos
+    // Otros metodos
     bool inscribirAlumno();
     void mostrarInfo() const;
 };
