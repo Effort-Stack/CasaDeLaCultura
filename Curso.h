@@ -1,25 +1,40 @@
+#ifndef CURSO_H
+#define CURSO_H
+
 #include <string>
 #include <vector>
+#include "Validaciones.h"
 
 class Curso {
 private:
-    std::string nombre;  // Nombre del curso (ejemplo: "Matemáticas")
-    int cupo;            // Cupo máximo de alumnos para el curso
-    double costo;        // Costo del curso
-    std::vector<std::string> alumnosInscritos;  // Lista de carnets de alumnos inscritos en el curso
+    std::string nombre;
+    int cupos;
+    double costo;
+    std::vector<std::string> alumnosInscritos;
 
 public:
-    // Constructor para inicializar un curso con nombre, cupo y costo
-    Curso(const std::string& nombre, int cupo, double costo);
+    // Constructores
+    Curso();
+    Curso(const std::string& nombre, int cupos, double costo);
 
-    // Getters para obtener los atributos del curso
+    // Métodos para obtener y establecer atributos
     std::string getNombre() const;
-    int getCupo() const;
-    double getCosto() const;
-    const std::vector<std::string>& obtenerAlumnosInscritos() const;
+    bool setNombre(const std::string& nombre);
 
-    // Métodos para inscribir y remover alumnos por carnet
-    void inscribirAlumno(const std::string& carnetAlumno);
-    void removerAlumno(const std::string& carnetAlumno);
+    int getCupos() const;
+    bool setCupos(int cupos);
+
+    double getCosto() const;
+    bool setCosto(double costo);
+
+    const std::vector<std::string>& getAlumnosInscritos() const;
+
+    // Inscribir un alumno al curso
+    bool inscribirAlumno(const std::string& nombreAlumno);
+
+    // Remover un alumno del curso
+    bool removerAlumno(const std::string& nombreAlumno);
 };
+
+#endif
 
