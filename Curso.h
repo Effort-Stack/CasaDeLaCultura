@@ -1,28 +1,25 @@
 #include <string>
+#include <vector>
 
 class Curso {
 private:
-    std::string nombre;
-    int cupo;
-    int cuposDisponibles;
-    double costo;
+    std::string nombre;  // Nombre del curso (ejemplo: "Matemáticas")
+    int cupo;            // Cupo máximo de alumnos para el curso
+    double costo;        // Costo del curso
+    std::vector<std::string> alumnosInscritos;  // Lista de carnets de alumnos inscritos en el curso
 
 public:
-    // Constructor
+    // Constructor para inicializar un curso con nombre, cupo y costo
     Curso(const std::string& nombre, int cupo, double costo);
 
-    // Metodos (setters y getters)
+    // Getters para obtener los atributos del curso
     std::string getNombre() const;
     int getCupo() const;
-    int getCuposDisponibles() const;
     double getCosto() const;
+    const std::vector<std::string>& obtenerAlumnosInscritos() const;
 
-    void setNombre(const std::string& nombre);
-    void setCupo(int cupo);
-    void setCosto(double costo);
-
-    // Otros metodos
-    bool inscribirAlumno();
-    void mostrarInfo() const;
+    // Métodos para inscribir y remover alumnos por carnet
+    void inscribirAlumno(const std::string& carnetAlumno);
+    void removerAlumno(const std::string& carnetAlumno);
 };
 
